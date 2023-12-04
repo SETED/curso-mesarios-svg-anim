@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 260">
+  <defs>
+    <style>
+      :root {
+        --animation_1_duration: 850ms;
+        --animation_2_duration: 750ms;
+        --animation_3_duration: 250ms;
+      }
+
+      .path_1 {
+        fill: none;
+        stroke: url(#gradient);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 42px;
+        stroke-dasharray: 232;
+        animation:
+          path_1_animation_1 var(--animation_1_duration) ease-in forwards,
+          path_1_animation_2 var(--animation_2_duration) ease-in-out var(--animation_1_duration) forwards;
+      }
+
+      @keyframes path_1_animation_1 {
+        from {
+          stroke-dashoffset: 232;
+        }
+
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes path_1_animation_2 {
+
+        from,
+        35% {
+          stroke-dashoffset: 0;
+        }
+
+        45% {
+          stroke-dashoffset: 35;
+        }
+
+        85%,
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .circle {
+        fill: #6fc;
+        opacity: 0;
+        animation:
+          circle_animation var(--animation_2_duration) ease-in-out var(--animation_1_duration) forwards;
+      }
+
+      @keyframes circle_animation {
+        from {
+          opacity: 0;
+          transform: translateY(0);
+        }
+
+        25% {
+          opacity: 1;
+        }
+
+        30% {
+          opacity: 1;
+          transform: translateY(-40px);
+        }
+
+        55% {
+          opacity: 1;
+          transform: translateY(35px);
+        }
+
+        80%,
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .path_2 {
+        fill: none;
+        opacity: 0;
+        stroke: url(#gradient_2);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 42px;
+        stroke-dasharray: 81.9;
+        animation: path_2_animation;
+        animation-duration: var(--animation_3_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: calc(var(--animation_1_duration) + (var(--animation_2_duration) * 0.2));
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes path_2_animation {
+        from {
+          opacity: 0;
+          stroke-dashoffset: -81.9;
+        }
+
+        1% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 1;
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .path_2_shadow {
+        fill: none;
+        opacity: 0;
+        stroke: url(#gradient_3);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 42px;
+        stroke-dasharray: 81.9;
+        animation: path_2_animation var(--animation_3_duration) ease-in-out calc(var(--animation_1_duration) + (var(--animation_2_duration) * 0.2)) forwards;
+        clip-path: url(#shadow_clip);
+      }
+    </style>
+
+    <linearGradient id="gradient" x1="48.1" y1="226.89" x2="206.2" y2="236.89" gradientTransform="translate(0 -71.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6fc" />
+      <stop offset=".85" stop-color="#834de0" />
+    </linearGradient>
+    <linearGradient id="gradient_2" x1="67.92" y1="202.64" x2="191.57" y2="202.64" gradientTransform="translate(0 -71.89)" gradientUnits="userSpaceOnUse">
+      <stop offset=".09" stop-color="#6fc" />
+      <stop offset=".67" stop-color="#de65c0" />
+    </linearGradient>
+    <linearGradient id="gradient_3" x1="-663.09" y1="236.39" x2="-663.09" y2="226.59" gradientTransform="translate(847.9 -71.89)"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#844fdf" stop-opacity="0" />
+      <stop offset="1" stop-color="#2f2f2f" stop-opacity=".8" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path class="circle"
+      d="m48.2,67.95c0,5.9,2,10.9,6.1,15s9.1,6.2,14.9,6.2,10.8-2.1,14.9-6.2,6.1-9.1,6.1-15-2-10.9-6.1-15.1c-4.1-4.1-9-6.2-14.9-6.2s-10.8,2.1-14.9,6.2c-4,4.1-6.1,9.1-6.1,15.1Z" />
+    <path class="path_1"
+      d="m185.2,139.75v13.4c0,16-5.8,30-17.2,41.8-11.5,11.8-25.3,17.6-41.2,17.4-16-.2-29.6-6.1-40.8-17.7-11.2-11.7-16.9-25.5-16.9-41.6v-35.4" />
+
+
+    <clipPath id="shadow_clip">
+      <path
+        d="m127.5,233.5c-.35,0-.69,0-1.04,0-21.74-.27-40.46-8.38-55.64-24.11-15.15-15.82-22.79-34.7-22.79-56.19v-35.4c0-11.6,9.4-21,21-21s21,9.4,21,21v35.4c0,10.58,3.52,19.19,11.07,27.08,7.25,7.51,15.5,11.09,25.89,11.22,10.16.1,18.42-3.39,25.9-11.06,7.54-7.81,11.24-16.71,11.24-27.14v-13.4c0-11.6,9.4-21,21-21s21,9.4,21,21v13.4c0,21.25-7.99,40.75-23.1,56.39-15.22,15.61-34.38,23.81-55.53,23.81Z" />
+    </clipPath>
+
+    <path id="shadow" class="path_2_shadow" d="m129,140h81.9" />
+
+    <path class="path_2" d="m129,130.75h81.9" />
+
+  </g>
+</svg>
