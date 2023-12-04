@@ -4,19 +4,19 @@
   <defs>
     <style>
       :root {
-        --icon_p1_anim_1_duration: 850ms;
-        --icon_p1_anim_2_duration: 750ms;
-        --icon_p2_anim_duration: 250ms;
+        --icon_p1_anim_1_duration: 650ms;
+        --icon_p1_anim_2_duration: 550ms;
+        --icon_p2_anim_duration: 150ms;
         --icon_p2_anim_delay: calc(var(--icon_p1_anim_1_duration) + (var(--icon_p1_anim_2_duration) * 0.2));
 
         --icon_group_anim_duration: 500ms;
-        --icon_group_anim_delay: calc(var(--icon_p2_anim_delay) + var(--icon_p2_anim_duration) * 1.25);
+        --icon_group_anim_delay: calc(var(--icon_p2_anim_delay) + var(--icon_p2_anim_duration) * 2.85);
 
         --word_1_anim_duration: 1000ms;
         --word_1_anim_delay: calc(var(--icon_group_anim_duration) + var(--icon_group_anim_delay) * 0.30);
 
-        --word_2_anim_duration: 800ms;
-        --word_2_anim_delay: calc(var(--icon_group_anim_delay) + var(--icon_group_anim_delay) * 0.325);
+        --word_2_anim_duration: 500ms;
+        --word_2_anim_delay: calc(var(--icon_group_anim_delay) + var(--icon_group_anim_delay) * 0.275);
 
         --mesario_fadeOut_duration: 300ms;
         --mesario_fadeOut_delay: calc(var(--word_2_anim_duration) + var(--word_2_anim_delay) + 800ms);
@@ -287,6 +287,7 @@
     </linearGradient>
 
   </defs>
+  <rect width="100%" height="100%" fill="black" />
 
   <clipPath id="word_1_clip">
     <rect />
