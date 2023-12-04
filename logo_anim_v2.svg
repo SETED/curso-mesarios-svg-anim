@@ -120,7 +120,7 @@
         stroke-width: 62px;
         stroke-dasharray: 346;
         animation:
-          icon_path_1_anim_1 var(--icon_p1_anim_1_duration) ease-in forwards,
+          icon_path_1_anim_1 var(--icon_p1_anim_1_duration) linear forwards,
           icon_path_1_anim_2 var(--icon_p1_anim_2_duration) ease-in-out var(--icon_p1_anim_1_duration) forwards;
       }
 
@@ -142,7 +142,7 @@
         }
 
         45% {
-          stroke-dashoffset: 35;
+          stroke-dashoffset: 70;
         }
 
         85%,
