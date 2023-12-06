@@ -4,6 +4,7 @@
   <defs>
     <style>
       :root {
+        /* LOGO MESÁRIO */
         --icon_p1_anim_1_duration: 450ms;
         --icon_p1_anim_2_duration: 550ms;
         --icon_p2_anim_duration: 300ms;
@@ -21,17 +22,18 @@
         --mesario_fadeOut_duration: 500ms;
         --mesario_fadeOut_delay: calc(var(--word_2_anim_duration) + var(--word_2_anim_delay) + 1250ms);
 
+        /* LOGO ELEIÇÕES */
         --logo_fadeIn_duration: 500ms;
         --logo_fadeIn_delay: calc(var(--mesario_fadeOut_duration) + var(--mesario_fadeOut_delay));
 
         --logo_fadeOut_duration: 500ms;
         --logo_fadeOut_delay: calc(var(--logo_fadeIn_duration) + var(--logo_fadeIn_delay) + 1250ms);
 
-        --mesario-background: rgba(0,0,0,0);
+        --mesario-background: rgba(0, 0, 0, 0);
         --mesario-color: #3BD4AE;
-        
+
         --logo-eleicao-background: #311B92;
-        --logo-eleicao-color: #FFF;
+        --logo-eleicao-color: #FFFFFF;
       }
 
       #word_1 {
@@ -293,6 +295,8 @@
   <clipPath id="word_1_clip">
     <rect />
   </clipPath>
+
+  <!-- LOGO MESÁRIO -->
   <g id="mesario">
     <rect width="100%" height="100%" style="fill: var(--mesario-background);" />
 
@@ -333,13 +337,12 @@
       <path class="icon_path_2" d="m847.31,415.82h143.88" />
 
     </g>
-
   </g>
 
 
   <!-- LOGO ELEIÇÃO -->
 
-  <g id="logo_eleicao" >
+  <g id="logo_eleicao">
     <rect width="100%" height="100%" style="fill: var(--logo-eleicao-background)" />
     <g style="fill: var(--logo-eleicao-color)">
       <path d="m467.12,303.12c1.17-.06,1.47.12,1.46.91,0,.17-.03.33-.21.4-.17.07-.32.04-.45-.09-.36-.36-.57-.8-.76-1.26l-.04.03Z" fill-rule="evenodd"

@@ -21,7 +21,7 @@
         <img id="animation" src="./logo_anim_v2.svg" />
         <script>
             var anim = document.getElementById("animation");
-            anim.src=getBustledSrc();
+            anim.src = getBustledSrc();
         </script>
     </container>
     <container style="position: absolute; width: 100%; height: 100%;">
@@ -32,27 +32,62 @@
     </container>
     <container
         style="position: absolute; display: flex; flex-direction: row; margin:0.25rem; padding: 0.25rem; gap: 0.25rem; font-size: 2rem; color: #111; background: #FF8888; border-radius: 0.25rem">
-        <label id="minutes">00</label>:<label id="seconds">00</label>
-        <button type="button" onClick="refreshPage()">⟳</button>
+
+        <button onclick="startStopwatch()">▶</button>
+        <button onclick="stopStopwatch()">◼</button>
+        <button onclick="resetStopwatch()">reset</button>
+
+        <span id="s_minutes">00</span>:
+        <span id="s_seconds">00</span>:
+        <span id="s_ms">000</span>
+
+        <button type="button" onClick="refreshPage()">↻</button>
     </container>
     <script>
-        var minutesLabel = document.getElementById("minutes");
-        var secondsLabel = document.getElementById("seconds");
-        var totalSeconds = 0;
-        setInterval(setTime, 1000);
+        let offset = 0,
+            paused = false;
 
-        function setTime() {
-            ++totalSeconds;
-            secondsLabel.innerHTML = pad(totalSeconds % 60);
-            minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        resetStopwatch();
+        render();
+
+        function startStopwatch(evt) {
+            if (paused) {
+                paused = false;
+                offset -= Date.now();
+                render();
+            }
         }
 
-        function pad(val) {
-            var valString = val + "";
-            if (valString.length < 2) {
-                return "0" + valString;
+        function stopStopwatch(evt) {
+            if (!paused) {
+                paused = true;
+                offset += Date.now();
+            }
+        }
+
+        function resetStopwatch(evt) {
+            if (paused) {
+                offset = 0;
+                render();
             } else {
-                return valString;
+                offset = -Date.now();
+            }
+        }
+
+        function format(value, scale, modulo, padding) {
+            value = Math.floor(value / scale) % modulo;
+            return value.toString().padStart(padding, 0);
+        }
+
+        function render() {
+            var value = paused ? offset : Date.now() + offset;
+
+            document.querySelector('#s_ms').textContent = format(value, 1, 1000, 3);
+            document.querySelector('#s_seconds').textContent = format(value, 1000, 60, 2);
+            document.querySelector('#s_minutes').textContent = format(value, 60000, 60, 2);
+
+            if (!paused) {
+                requestAnimationFrame(render);
             }
         }
 
