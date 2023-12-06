@@ -8,16 +8,30 @@
 </head>
 
 <body style="margin: 0; padding: 0; background: #111;">
+
+    <script>
+        function getBustledSrc() {
+            const src = "./logo_anim_v2.svg";
+            let bustledSrc = src + "?q=" + Date.now();
+            return bustledSrc;
+        }
+    </script>
+
     <container style="position: absolute; width: 100%; height: 100%; display: flex; flex-direction: column; align-content: center;justify-content: center;">
-        <img id="animation" src="./logo_anim_v2.svg"/>
+        <img id="animation" src="" />
+        <script>
+            var anim = document.getElementById("animation");
+            anim.src=getBustledSrc();
+        </script>
     </container>
-    <container style="position: absolute; width: 100%; height: 100%;" >
+    <container style="position: absolute; width: 100%; height: 100%;">
         <svg width="100%" height="100%">
             <rect x="50%" width="1px" height="100%" fill="cyan" />
             <rect y="50%" width="100%" height="1px" fill="cyan" />
         </svg>
     </container>
-    <container style="position: absolute; display: flex; flex-direction: row; margin:0.25rem; padding: 0.25rem; gap: 0.25rem; font-size: 2rem; color: #111; background: #FFCCCC; border-radius: 0.25rem">
+    <container
+        style="position: absolute; display: flex; flex-direction: row; margin:0.25rem; padding: 0.25rem; gap: 0.25rem; font-size: 2rem; color: #111; background: #FF8888; border-radius: 0.25rem">
         <label id="minutes">00</label>:<label id="seconds">00</label>
         <button type="button" onClick="refreshPage()">⟳</button>
     </container>
@@ -42,11 +56,8 @@
             }
         }
 
-        function refreshPage(){
-            var anim = document.getElementById("animation");
-            anim.classList.remove('a');
+        function refreshPage() {
             window.location.reload();
         }
-        
     </script>
 </body>
