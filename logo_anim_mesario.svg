@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      :root {
+        /* LOGO MESÁRIO */
+        --icon_p1_anim_1_duration: 450ms;
+        --icon_p1_anim_2_duration: 550ms;
+        --icon_p2_anim_duration: 300ms;
+        --icon_p2_anim_delay: calc(var(--icon_p1_anim_1_duration) + (var(--icon_p1_anim_2_duration) * 0.2));
+
+        --icon_group_anim_duration: 500ms;
+        --icon_group_anim_delay: calc(var(--icon_p2_anim_delay) + var(--icon_p2_anim_duration) * 1.25);
+
+        --word_1_anim_duration: 700ms;
+        --word_1_anim_delay: calc(var(--icon_group_anim_duration) * 1.15);
+
+        --word_2_anim_duration: 500ms;
+        --word_2_anim_delay: calc(var(--icon_group_anim_delay) + var(--icon_group_anim_delay) * 0.275);
+
+        --mesario_fadeOut_duration: 500ms;
+        --mesario_fadeOut_delay: calc(var(--word_2_anim_duration) + var(--word_2_anim_delay) + 1250ms);
+
+        --mesario-background: rgba(0, 0, 0, 0);
+        --mesario-color: #3BD4AE;
+      }
+
+      #word_1 {
+        fill: var(--mesario-color);
+        clip-path: url(#word_1_clip);
+      }
+
+      #word_1_clip rect {
+        width: 100%;
+        height: 100%;
+        transform: translateX(-101%);
+        animation: word_1_clip_anim;
+        animation-duration: var(--word_1_anim_duration);
+        animation-timing-function: ease-in;
+        animation-delay: var(--word_1_anim_delay);
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes word_1_clip_anim {
+        from {
+          width: 0;
+          transform: translateX(-101%);
+        }
+
+        to {
+          width: 100%;
+          transform: translateX(0);
+
+        }
+      }
+
+      #word_2 path {
+        fill: none;
+        opacity: 0;
+        stroke: var(--mesario-color);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 37px;
+        stroke-dasharray: 300;
+        animation: word_2_path_anim;
+        animation-duration: var(--word_2_anim_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: var(--word_2_anim_delay);
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes word_2_path_anim {
+        from {
+          opacity: 0;
+          stroke-dashoffset: 300;
+        }
+
+        1% {
+          opacity: var(--anim_opacity, 1);
+        }
+
+        to {
+          opacity: var(--anim_opacity, 1);
+          stroke-dashoffset: 0;
+        }
+      }
+
+      #icon_group {
+        transform: translateX(-33%);
+        animation: icon_group_anim;
+        animation-duration: var(--icon_group_anim_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: var(--icon_group_anim_delay);
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes icon_group_anim {
+        from {
+          transform: translateX(-33%);
+        }
+
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .icon_path_1 {
+        fill: none;
+        stroke: #FFF;
+        stroke: url(#icon_gradient_1);
+        stroke-linecap: round;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 10;
+        stroke-width: 62px;
+        stroke-dasharray: 346;
+        animation:
+          icon_path_1_anim_1 var(--icon_p1_anim_1_duration) linear forwards,
+          icon_path_1_anim_2 var(--icon_p1_anim_2_duration) ease-in-out var(--icon_p1_anim_1_duration) forwards;
+      }
+
+      @keyframes icon_path_1_anim_1 {
+        from {
+          stroke-dashoffset: 346;
+        }
+
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes icon_path_1_anim_2 {
+
+        from,
+        35% {
+          stroke-dashoffset: 0;
+        }
+
+        45% {
+          stroke-dashoffset: 70;
+        }
+
+        85%,
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .icon_circle {
+        fill: var(--mesario-color);
+        opacity: 0;
+        animation:
+          icon_circle_anim var(--icon_p1_anim_2_duration) ease-in-out var(--icon_p1_anim_1_duration) forwards;
+      }
+
+      @keyframes icon_circle_anim {
+        from {
+          opacity: 0;
+          transform: translateY(0);
+        }
+
+        25% {
+          opacity: 1;
+        }
+
+        30% {
+          opacity: 1;
+          transform: translateY(-80px);
+        }
+
+        55% {
+          opacity: 1;
+          transform: translateY(70px);
+        }
+
+        80%,
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .icon_path_2 {
+        fill: none;
+        opacity: 0;
+        stroke: url(#icon_gradient_2);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 64px;
+        stroke-dasharray: 150;
+        animation: icon_path_2_anim;
+        animation-duration: var(--icon_p2_anim_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: var(--icon_p2_anim_delay);
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes icon_path_2_anim {
+        from {
+          opacity: 0;
+          stroke-dashoffset: -150;
+        }
+
+        1% {
+          opacity: var(--anim_opacity, 1);
+        }
+
+        to {
+          opacity: var(--anim_opacity, 1);
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .icon_path_2_shadow {
+        --anim_opacity: .25;
+        opacity: 0;
+        stroke: black;
+        fill: black;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 64px;
+        stroke-dasharray: 150;
+        clip-path: url(#shadow_clip);
+        animation: icon_path_2_anim;
+        animation-duration: var(--icon_p2_anim_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: var(--icon_p2_anim_delay);
+        animation-fill-mode: forwards;
+      }
+
+      #mesario {
+        animation: fadeOut;
+        animation-duration: var(--mesario_fadeOut_duration);
+        animation-timing-function: ease-in-out;
+        animation-delay: var(--mesario_fadeOut_delay);
+        animation-fill-mode: forwards;
+      }
+
+      #logo_eleicao {
+        opacity: 0;
+        animation:
+          fadeIn var(--logo_fadeIn_duration) ease-in-out var(--logo_fadeIn_delay) forwards,
+          fadeOut var(--logo_fadeOut_duration) ease-in-out var(--logo_fadeOut_delay) forwards;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <linearGradient id="icon_gradient_1" x1="781.36" y1="433.12" x2="934.68" y2="488.93" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#21d0b2" />
+      <stop offset=".03" stop-color="#1cccbc" />
+      <stop offset=".16" stop-color="#07bbec" />
+      <stop offset=".22" stop-color="#00b5ff" />
+      <stop offset=".27" stop-color="#10a6ff" />
+      <stop offset=".53" stop-color="#5d64ff" />
+      <stop offset=".71" stop-color="#8d3aff" />
+      <stop offset=".8" stop-color="#a02bff" />
+    </linearGradient>
+
+    <linearGradient id="icon_gradient_2" x1="815.11" y1="415.66" x2="1023.44" y2="415.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a02bff" />
+      <stop offset=".5" stop-color="#ec1aa9" />
+      <stop offset="1" stop-color="#e96278" />
+    </linearGradient>
+
+  </defs>
+  <clipPath id="word_1_clip">
+    <rect />
+  </clipPath>
+
+  <!-- LOGO MESÁRIO -->
+  <g id="mesario">
+    <rect width="100%" height="100%" style="fill: var(--mesario-background);" />
+
+    <g id="word_1">
+      <path
+        d="m0,284.53h43.11c7.54,19.64,14.66,40.22,21.36,61.74,6.7,21.52,12,41.2,15.9,59.01h1.56c3.51-16,8.22-33.32,14.14-51.99,5.92-18.66,12.97-39.7,21.17-63.11.65-1.82,1.3-3.71,1.95-5.66h42.92v136.36h-34.72v-70.81c0-7.8.45-14.82,1.37-21.07.26-1.3.45-2.54.59-3.71h-1.56l-31.21,95.59h-31.02l-31.02-95.59h-1.37c.13,1.3.32,2.67.58,4.1.26,2.6.52,5.6.78,8.98.26,3.38.39,7.22.39,11.51v71.01H0v-136.36Z" />
+      <path d="m181.03,284.53h108.07v35.51h-71.2v23.8h59.3v15.8l-59.3-.19v26.33h71.79v35.11h-108.66v-136.36Z" />
+      <path
+        d="m327.53,417.57c-9.89-4.55-17.33-11.09-22.34-19.6-5.01-8.52-7.58-18.63-7.71-30.33l31.6-5.85c.26,5.34,1.69,9.92,4.29,13.75,2.6,3.84,6.5,6.86,11.71,9.07,5.2,2.21,11.57,3.32,19.12,3.32,5.33,0,9.69-.62,13.07-1.85,3.38-1.23,5.85-2.93,7.41-5.07,1.56-2.15,2.34-4.58,2.34-7.32s-.81-4.78-2.44-6.53c-1.63-1.76-4.42-3.22-8.39-4.39-3.97-1.17-9.72-2.34-17.26-3.51-13.66-1.95-24.61-4.68-32.87-8.19-8.26-3.51-14.24-7.74-17.95-12.68-3.71-4.94-5.56-10.93-5.56-17.95,0-12.74,5.1-22.56,15.31-29.46,10.21-6.89,23.7-10.34,40.48-10.34,11.96,0,22.5,1.75,31.6,5.27,9.1,3.51,16.48,9.27,22.14,17.26,5.66,8,8.94,18.7,9.85,32.09l-32.77,6.83c.26-6.11-1.11-11.05-4.1-14.83-2.99-3.77-6.99-6.44-12-8-5.01-1.56-10.57-2.34-16.68-2.34-6.63,0-11.58,1.17-14.83,3.51-3.25,2.34-4.88,5.4-4.88,9.17,0,2.34.62,4.32,1.85,5.95,1.23,1.63,3.67,3.09,7.32,4.39,3.64,1.3,8.84,2.47,15.61,3.51,14.83,2.08,26.6,4.88,35.31,8.39,8.71,3.51,14.99,7.7,18.82,12.58,3.83,4.88,5.76,10.89,5.76,18.04,0,8.85-2.57,16.42-7.71,22.73-5.14,6.31-12.09,11.09-20.87,14.34-8.78,3.25-18.57,4.88-29.36,4.88-14.05,0-26.01-2.28-35.89-6.83Z" />
+      <path
+        d="m473.84,284.53h60.08l45.06,136.36h-39.6c-1.95-5.98-3.97-11.96-6.05-17.95-2.21-6.37-4.1-12.29-5.66-17.75h-47.01c-3.25,10.14-7.09,22.04-11.51,35.7h-40.38l45.06-136.36Zm55.13-52.51l6.88,13.56-53.49,18.72-2.86-5.54c19.61-10.7,36.1-19.61,49.48-26.75Zm-24.51,67.34h-.97c-4.68,20.42-10.73,43.44-18.14,69.06h37.65c-6.76-22.63-12.94-45.65-18.53-69.06Z" />
+      <path
+        d="m680.82,419.72c-2.21-4.68-3.97-11.38-5.27-20.09l-1.37-8.58c-.91-5.2-2.31-9.46-4.19-12.78-1.89-3.31-4.68-5.82-8.39-7.51-3.71-1.69-8.42-2.54-14.14-2.54h-20.48v52.67h-36.87v-136.36h70.62c10.4,0,19.44,1.46,27.12,4.39,7.67,2.92,13.62,7.32,17.85,13.17,4.23,5.85,6.34,13.2,6.34,22.04,0,10.54-3.22,18.66-9.66,24.39-6.44,5.73-16.75,9.17-30.92,10.34v1.56c7.28.52,13.3,1.76,18.04,3.71,4.75,1.95,8.55,4.75,11.41,8.39,2.86,3.64,4.81,8.06,5.85,13.26l1.76,10.73c.78,4.42,1.75,8.65,2.93,12.68s2.54,7.93,4.1,11.7h-34.33c-.13-.39-.26-.78-.39-1.17Zm-7.51-72.08c3.45-2.66,5.17-6.53,5.17-11.61,0-5.46-1.75-9.33-5.27-11.61-3.51-2.27-8.65-3.41-15.41-3.41h-30.82v30.63h31.02c6.76,0,11.87-1.33,15.31-4Z" />
+    </g>
+
+    <g id="word_2">
+      <path
+        d="m901.71,404.5c-20.05-7.26-31.77-27.32-31.76-48.32,0-27.88,9.35-57.47,54.18-57.47,42.35,0,55.76,28.71,53.64,59.76-1.85,27.11-13.06,40.06-34.41,46.03" />
+    </g>
+
+    <g id="icon_group">
+      <path class="icon_circle"
+        d="m786.74,332.21c5.94-5.94,8.91-13.1,8.91-21.48,0-8.45-2.97-15.61-8.91-21.48-5.94-5.94-13.1-8.91-21.48-8.91s-15.61,2.97-21.48,8.91c-5.94,5.87-8.91,13.03-8.91,21.48s2.97,15.54,8.91,21.48c5.87,5.94,13.03,8.91,21.48,8.91,8.38,0,15.54-2.97,21.48-8.91Z" />
+
+      <mask id="deleteme_mask"
+        d="m853.77,566.98c-32.8,0-61.2-11.77-84.4-34.97-23.21-23.21-34.97-51.6-34.97-84.4v-56.75c0-17.12,13.88-31,31-31s31,13.88,31,31v56.75c0,16.2,5.34,29.09,16.81,40.56,11.47,11.47,24.36,16.81,40.56,16.81,11.33,0,21.04-2.59,29.66-7.92,1.07-.7,2.13-1.44,3.16-2.19l.14-.1c2.61-1.88,5.2-4.1,7.71-6.61,11.47-11.47,16.81-24.36,16.81-40.56,0-17.12,13.88-31,31-31s31,13.88,31,31c0,32.8-11.77,61.2-34.97,84.4-4.85,4.85-9.99,9.24-15.28,13.05-1.94,1.41-3.95,2.79-5.96,4.1l-.49.31c-18.57,11.62-39.69,17.51-62.78,17.51Z" />
+
+      <path class="icon_path_1"
+        d="m942.25,447.61c0,24.39-8.63,45.22-25.89,62.48-3.7,3.7-7.55,6.99-11.53,9.85-1.54,1.12-3.11,2.2-4.72,3.25-13.63,8.53-29.07,12.79-46.34,12.79-24.39,0-45.22-8.63-62.48-25.89-17.26-17.26-25.89-38.09-25.89-62.48v-56.75" />
+
+      <clipPath id="shadow_clip">
+        <path
+          d="m853.77,566.98c-32.8,0-61.2-11.77-84.4-34.97-23.21-23.21-34.97-51.6-34.97-84.4v-56.75c0-17.12,13.88-31,31-31s31,13.88,31,31v56.75c0,16.2,5.34,29.09,16.81,40.56,11.47,11.47,24.36,16.81,40.56,16.81,11.33,0,21.04-2.59,29.66-7.92,1.07-.7,2.13-1.44,3.16-2.19l.14-.1c2.61-1.88,5.2-4.1,7.71-6.61,11.47-11.47,16.81-24.36,16.81-40.56,0-17.12,13.88-31,31-31s31,13.88,31,31c0,32.8-11.77,61.2-34.97,84.4-4.85,4.85-9.99,9.24-15.28,13.05-1.94,1.41-3.95,2.79-5.96,4.1l-.49.31c-18.57,11.62-39.69,17.51-62.78,17.51Z" />
+      </clipPath>
+
+      <path id="shadow" class="icon_path_2_shadow" d="m857.31,425.82h143.88" />
+
+      <path class="icon_path_2" d="m847.31,415.82h143.88" />
+
+    </g>
+  </g>
+</svg>
